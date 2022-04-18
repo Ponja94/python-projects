@@ -2,31 +2,43 @@
 # Simular o uso de um dado para jogo
 
 import random
+import PySimpleGUI as sg
 
-
-class SimuladorDeDado:
+class DiceSimulator:
     def __init__(self):
-        self.valor_minimo = 1
-        self.valor_maximo = 6
-        self.mensagem = 'Quer gerar novo valor no dado?'
+        self.min_value = 1
+        self.max_value = 6
+        # Layout
+        sg.theme('Dark Blue 3')
+        self.layout = [
+            [sg.Text('Play the Dice?')],
+            [sg.Button('Yes'), sg.Button('No')]
+        ]
 
-    def iniciar(self):
-        resposta = input(self.mensagem)
+
+    def Start(self):
+
+        # Window
+        self.window = sg.Window('Dice simulator', layout=self.layout)
+        # Read values from window
+        self.events, self.values = self.window.Read()
+        # do something with values
+
         try:
-            if resposta == 's':
-                self.gerarValorDoDado()
-            elif resposta == 'n':
-                print('nenhum número gerado')
+            if self.events == 'y' or self.events == 'yes':
+                self.generateDiceValue()
+            elif self.events == 'n' or self.events == 'no':
+                print('Ok, thanks.')
             else:
-                print('favor digitar sim ou não')
+                print('Please enter yes or no')
 
         except:
             print('ocorreu um erro ao receber sua resposta')
 
-    def gerarValorDoDado(self):
-        print(random.randint(self.valor_minimo, self.valor_maximo))
+    def generateDiceValue(self):
+        print(random.randint(self.min_value, self.max_value))
 
 
-simulador = SimuladorDeDado()
+simulator = DiceSimulator()
 
-simulador.iniciar()
+simulator.Start()
