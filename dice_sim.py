@@ -1,5 +1,4 @@
-# Simulador de dado para jogo
-# Simular o uso de um dado para jogo
+# Dice Simulator
 
 import random
 import PySimpleGUI as sg
