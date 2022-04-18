@@ -21,6 +21,7 @@ class ChooseForMe:
         ]
         self.window = sg.Window('Choose',layout=layout)
         while True:
+
             self.events, self.values = self.window.Read()
             if self.events == 'Choose for me!':
                 print(random.choice(self.answare))
