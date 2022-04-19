@@ -1,6 +1,7 @@
 import random
 import PySimpleGUI as sg
 
+
 class ChooseForMe:
     def __init__(self):
         self.answare=[
@@ -12,7 +13,7 @@ class ChooseForMe:
             'Fit as a Fiddle'
         ]
 
-    def Start(self):
+    def start(self):
         layout = [
             [sg.Text('Ask something:')],
             [sg.Input()],
@@ -28,4 +29,5 @@ class ChooseForMe:
 
 
 chooseNow = ChooseForMe()
-chooseNow.Start()
+
+chooseNow.start()
